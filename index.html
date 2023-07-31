@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roboflow Demo</title>
+
+    <meta name="viewport" content="width=640, user-scalable=no" />
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"
+      integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/async/3.2.0/async.min.js"
+      integrity="sha512-6K6+H87tLdCWvY5ml9ZQXLRlPlDEt8uXmtELhuJRgFyEDv6JvndWHg3jadJuBVGPEhhA2AAt+ROMC2V7EvTIWw=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.roboflow.com/0.2.26/roboflow.js"></script>
+
+    <link rel="stylesheet" href="./main.css" />
+    <script src="./main.js"></script>
+  </head>
+
+  <body class="loading">
+    <!-- <video id="video" autoplay muted playsinline></video> -->
+    <!-- <video
+      id="video"
+      class="video-js"
+      controls
+      preload="auto"
+      poster="MY_VIDEO_POSTER.jpg"
+      data-setup="{}"
+      autoplay
+    >
+      <source
+        src="https://v3.szjal.cn/20191101/PZzNpqB1/index.m3u8"
+        type="application/x-mpegURL"
+      />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+          >supports HTML5 video</a
+        >
+      </p>
+    </video> -->
+    <div class="edit">
+      <input type="text" name="text" id="inputText" />
+      <button onclick="changePlayer();">Change m3u8</button>
+    </div>
+
+    <div class="frame">
+      <video
+        id="video"
+        preload="auto"
+        poster="MY_VIDEO_POSTER.jpg"
+        data-setup="{}"
+        autoplay
+        muted
+        class="videoShow"
+      >
+        <!-- <source
+        src="https://v3.szjal.cn/20191101/PZzNpqB1/index.m3u8"
+        type="application/x-mpegURL"
+      /> -->
+        <source id="videoSrc" src="/videoplayback (1).webm" type="video/webm" />
+        <p>
+          To view this video please enable JavaScript, and consider upgrading to
+          a web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank"
+            >supports HTML5 video</a
+          >
+        </p>
+      </video>
+      <div id="fps"></div>
+    </div>
+  </body>
+</html>
