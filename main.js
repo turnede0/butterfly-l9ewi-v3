@@ -101,6 +101,9 @@ $(function () {
     canvas[0].width = video.videoWidth;
     canvas[0].height = video.videoHeight;
 
+    // canvas[0].width = $(window).width();
+    // canvas[0].height = $(window).height();
+
     canvas.css({
       width: dimensions.width,
       height: dimensions.height,

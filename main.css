@@ -45,19 +45,19 @@ canvas {
 
 video,
 canvas {
-  position: fixed;
-  top: 30;
+  position: absolute;
+  top: 0;
   left: 0;
 }
 
 .edit {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 body:after {
   content: "";
-  /* position: fixed; */
+  /* position: absolute; */
   top: 20px;
   bottom: 20px;
   right: 20px;
@@ -71,7 +71,7 @@ body:after {
 }
 
 #fps {
-  position: fixed;
+  position: absolute;
   bottom: 10px;
   left: 10px;
 }

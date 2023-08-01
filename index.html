@@ -52,10 +52,6 @@
         >
       </p>
     </video> -->
-    <div class="edit">
-      <input type="text" name="text" id="inputText" />
-      <button onclick="changePlayer();">Change m3u8</button>
-    </div>
 
     <div class="frame">
       <video
@@ -67,12 +63,12 @@
         muted
         class="videoShow"
       >
-        <source
+        <!-- <source
           id="videoSrc"
           src="https://v3.szjal.cn/20191101/PZzNpqB1/index.m3u8"
           type="application/x-mpegURL"
-        />
-        <!-- <source id="videoSrc" src="/videoplayback (1).webm" type="video/webm" /> -->
+        /> -->
+        <source id="videoSrc" src="/butterfly_house.mp4" type="video/mp4" />
         <p>
           To view this video please enable JavaScript, and consider upgrading to
           a web browser that
@@ -82,6 +78,10 @@
         </p>
       </video>
       <div id="fps"></div>
+    </div>
+    <div class="edit">
+      <input type="text" name="text" id="inputText" />
+      <button onclick="changePlayer();">Change m3u8</button>
     </div>
   </body>
 </html>
