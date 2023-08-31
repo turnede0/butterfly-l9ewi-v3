@@ -4,6 +4,24 @@ let lock = true;
 $(function () {
   const video = $("video")[0];
 
+  //read cam from query
+  const queryString = window.location.search;
+  console.log("alex query=", queryString);
+  const urlParams = new URLSearchParams(queryString);
+  cam = urlParams.get("cam");
+  console.log("target cam=", cam);
+
+  if (cam !== "" && queryString !== "") {
+    console.log("set cam=", cam);
+    var player = videojs(document.querySelector(".videoShow"));
+    player.src({
+      src: "https://semproject.us/app/" + cam + "/llhls.m3u8",
+      type: "application/x-mpegURL" /*video type*/,
+    });
+  } else {
+    console.log("use default demo video");
+  }
+
   var model;
   var cameraMode = "environment"; // or "user"
 
