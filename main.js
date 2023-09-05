@@ -11,7 +11,7 @@ $(function () {
   cam = urlParams.get("cam");
   console.log("target cam=", cam);
 
-  if (cam !== "" && queryString !== "") {
+  if (cam && cam !== "" && queryString !== "") {
     console.log("set cam=", cam);
     var player = videojs(document.querySelector(".videoShow"));
     player.src({
@@ -24,6 +24,42 @@ $(function () {
 
   var model;
   var cameraMode = "environment"; // or "user"
+
+  var publishable_key = "rf_uWMQ4iYlkGMRfsWEaVLXt1Dx7Bn2";
+  var toLoad = {
+    model: "butterfly-l9ewi",
+    version: 3,
+  };
+
+  key = urlParams.get("key");
+  model = urlParams.get("model");
+  version = urlParams.get("version");
+
+  if (
+    key &&
+    model &&
+    version &&
+    key !== "" &&
+    model !== "" &&
+    version !== "" &&
+    queryString !== ""
+  ) {
+    publishable_key = key;
+    toLoad = {
+      model: model,
+      version: version,
+    };
+    console.log("key=", publishable_key);
+    console.log("model=", model, "version=", version);
+  } else {
+    console.log("use default model");
+  }
+
+  // var publishable_key = "rf_uWMQ4iYlkGMRfsWEaVLXt1Dx7Bn2";
+  // var toLoad = {
+  //   model: "butterfly-l9ewi",
+  //   version: 3,
+  // };
 
   //   const startVideoStreamPromise = navigator.mediaDevices
   //     .getUserMedia({
@@ -42,12 +78,6 @@ $(function () {
   //       });
   //     });
 
-  var publishable_key = "rf_uWMQ4iYlkGMRfsWEaVLXt1Dx7Bn2";
-  var toLoad = {
-    model: "butterfly-l9ewi",
-    version: 3,
-  };
-
   const loadModelPromise = new Promise(function (resolve, reject) {
     roboflow
       .auth({
@@ -61,7 +91,6 @@ $(function () {
   });
 
   Promise.all([loadModelPromise]).then(function () {
-    console.log("alex");
     $("body").removeClass("loading");
     resizeCanvas();
     detectFrame();
@@ -148,7 +177,7 @@ $(function () {
         num++;
         console.log(video.videoWidth * 0.5);
         console.log(video.videoHeight * 0.5);
-        console.log("alex butterfly=", num, " ", x, " ", y);
+        console.log("butterfly appear=", num, " ", x, " ", y);
       }
 
       const width = prediction.bbox.width;
