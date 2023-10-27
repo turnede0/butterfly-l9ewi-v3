@@ -15,7 +15,7 @@ $(function () {
     console.log("set cam=", cam);
     var player = videojs(document.querySelector(".videoShow"));
     player.src({
-      src: "https://semproject.us/app/" + cam + "/llhls.m3u8",
+      src: "https://live.internal.semproject.us/app/" + cam + "/llhls.m3u8",
       type: "application/x-mpegURL" /*video type*/,
     });
   } else {
